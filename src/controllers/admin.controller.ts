@@ -6,6 +6,7 @@ const adminController: T = {};
 
 adminController.goHome = (req: Request, res: Response) => {
   try {
+    console.log("goHome")
     res.send("Home Page");
   } catch (err) {
     console.log("Error, goHome", err);
