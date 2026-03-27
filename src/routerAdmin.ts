@@ -15,7 +15,7 @@ routerAdmin
   .get("/signup", adminController.getSignup)
   .post(
     "/signup",
-    makeUploader("members").single("productImage"),
+    makeUploader("members").single("memberImage"),
     adminController.processSignup,
   );
 
