@@ -41,3 +41,20 @@ export interface ProductInput {
   productViews?: number;
   productLikes?: number;
 }
+
+export interface ProductUpdateInput {
+  _id: ObjectId;
+  productStatus?: ProductStatus;
+  productCategory?: ProductCategory;
+  kitType?: KitType;
+  productBrand?: ProductBrand;
+  productName?: string;
+  productPrice?: number;
+  productLeftCount?: number;
+  productSize?: ProductSize;
+  productColor?: string;
+  productDesc?: string;
+  productImages?: string[];
+  productViews?: number;
+  productLikes?: number;
+}
