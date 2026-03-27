@@ -11,6 +11,21 @@ export enum ProductCategory {
   GLOVES = "GLOVES",
 }
 
+export enum KitType {
+  JERSEY = "JERSEY",
+  SHORTS = "SHORTS",
+  SOCKS = "SOCKS",
+}
+
+export enum ProductBrand {
+  NIKE = "NIKE",
+  ADIDAS = "ADIDAS",
+  PUMA = "PUMA",
+  NEW_BALANCE = "NEW_BALANCE",
+  UNDER_ARMOUR = "UNDER_ARMOUR",
+  UMBRO = "UMBRO",
+}
+
 export enum ProductSize {
   XS = "XS",
   S = "S",
@@ -29,19 +44,4 @@ export enum ProductSize {
   SIZE_3 = "SIZE_3",
   SIZE_4 = "SIZE_4",
   SIZE_5 = "SIZE_5",
-}
-
-export enum KitType {
-  JERSEY = "JERSEY",
-  SHORTS = "SHORTS",
-  SOCKS = "SOCKS",
-}
-
-export enum ProductBrand {
-  NIKE = "NIKE",
-  ADIDAS = "ADIDAS",
-  PUMA = "PUMA",
-  NEW_BALANCE = "NEW_BALANCE",
-  UNDER_ARMOUR = "UNDER_ARMOUR",
-  UMBRO = "UMBRO",
 }
