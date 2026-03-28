@@ -16,7 +16,10 @@ const productController: T = {};
 productController.getAllProducts = async (req: Request, res: Response) => {
   try {
     console.log("getAllProducts");
-    res.render("products");
+    const data = await productService.getAllProducts();
+    console.log("data:", data);
+
+    res.render("products", { products: data });
   } catch (err) {
     console.log("Error, getAllProducts:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
@@ -62,7 +65,10 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
     const id = req.params.id; // req <= params <= id (69c6b549e36c9423eb837137)
     console.log("id:", id);
 
-    const result = await productService.updateChosenProduct(id as string, req.body);
+    const result = await productService.updateChosenProduct(
+      id as string,
+      req.body,
+    );
 
     res.status(HttpCode.OK).json({ data: result });
   } catch (err) {
