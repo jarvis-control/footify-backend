@@ -3,6 +3,7 @@ const routerAdmin = express.Router();
 import adminController from "./controllers/admin.controller";
 import productController from "./controllers/product.controller";
 import makeUploader from "./libs/utils/uploader";
+import router from "./router";
 
 /** Admin */
 routerAdmin.get("/", adminController.goHome);
@@ -44,5 +45,6 @@ routerAdmin.post(
 );
 
 /** User */
+routerAdmin.get("/user/all", adminController.verifyAdmin, adminController.getUsers);
 
 export default routerAdmin;
