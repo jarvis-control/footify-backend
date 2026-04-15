@@ -1,5 +1,6 @@
 import { ObjectId } from "mongoose";
 import { OrderStatus } from "../enums/order.enum";
+import { Product } from "./product";
 
 // Jersey, Socks, ball -> OrderItem => inside Order
 export interface OrderItem {
@@ -21,6 +22,10 @@ export interface Order {
   memberId: ObjectId;
   createdAt: Date;
   updatedAt: Date;
+
+  // from aggregate()
+  orderItems: OrderItem[];
+  productData: Product[];
 }
 
 // Input -> Jersey(3), Socks(2), Ball(1) => all go to Order
@@ -29,4 +34,11 @@ export interface OrderItemInput {
   itemPrice: number;
   productId: ObjectId;
   orderId?: ObjectId;
+}
+
+// Query input (req.query) from Frontend (-> POSTMAN)
+export interface OrderInquiry {
+  page: number;
+  limit: number;
+  orderStatus: OrderStatus;
 }
