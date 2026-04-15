@@ -26,6 +26,14 @@ export interface Product {
   updatedAt: Date;
 }
 
+export interface ProductInquiry {
+  order: string;
+  page: number;
+  limit: number;
+  productCategory?: ProductCategory;
+  search?: string;
+}
+
 export interface ProductInput {
   productStatus?: ProductStatus;
   productCategory: ProductCategory;
