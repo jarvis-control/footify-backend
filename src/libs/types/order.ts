@@ -2,6 +2,14 @@ import { ObjectId } from "mongoose";
 import { OrderStatus } from "../enums/order.enum";
 import { Product } from "./product";
 
+// Input -> Jersey(3), Socks(2), Ball(1) => all go to Order
+export interface OrderItemInput {
+  itemQuantity: number;
+  itemPrice: number;
+  productId: ObjectId;
+  orderId?: ObjectId;
+}
+
 // Jersey, Socks, ball -> OrderItem => inside Order
 export interface OrderItem {
   _id: ObjectId;
