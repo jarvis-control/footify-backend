@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 const orderItemSchema = new Schema(
   {
     itemQuantity: {
-      rtpe: Number,
+      type: Number,
       required: true,
     },
 
@@ -12,7 +12,7 @@ const orderItemSchema = new Schema(
       required: true,
     },
 
-    orderid: {
+    orderId: {
       type: Schema.Types.ObjectId,
       ref: "Order",
     },
