@@ -1,5 +1,43 @@
 <%- include('includes/header') %>
 
-<body></body>
+<link rel="stylesheet" href="/css/home.css" />
+
+<body>
+  <div class="home-container">
+    <!-- NAVBAR -->
+    <div class="top-navbar">
+      <div class="nav-inner">
+        <!-- LEFT: LOGO -->
+        <a href="/admin" class="logo">FOOTIFY</a>
+
+        <!-- CENTER: LINKS -->
+        <div class="nav-links">
+          <a href="/admin" class="active">Home</a>
+          <a href="/admin/signup">Signup</a>
+          <a href="/admin/login">Login</a>
+        </div>
+
+        <!-- RIGHT (EMPTY FOR BALANCE) -->
+        <div class="nav-right"></div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">
+          FOOTIFY<br />
+          <span>WHERE THE GAME BEGINS</span>
+        </h1>
+
+        <p class="hero-subtitle">Manage your football store like a champion</p>
+
+        <a href="/admin/login" class="hero-btn"> OPEN ADMIN PANEL </a>
+      </div>
+    </div>
+  </div>
+</body>
 
 <%- include('includes/footer') %>

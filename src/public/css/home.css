@@ -1,0 +1,220 @@
+/* ========================= */
+/* BACKGROUND */
+/* ========================= */
+.home-container {
+  position: relative;
+  min-height: 100vh;
+  background: url("/img/stadium2.jpg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+.top-navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  padding: 18px 40px;
+
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+}
+
+/* INNER LAYOUT */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo,
+.logo:visited,
+.logo:hover,
+.logo:active {
+  position: relative;
+
+  font-size: 22px;
+  font-weight: 700;
+  color: #facc15;
+  letter-spacing: 2px;
+  font-family: "Poppins", sans-serif;
+
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.logo:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* UNDERLINE ANIMATION */
+.logo::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+  background: #facc15;
+
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+  width: 100%;
+}
+
+/* ========================= */
+/* NAV LINKS */
+/* ========================= */
+.nav-links {
+  display: flex;
+  gap: 75px;
+  justify-content: center;
+}
+
+.nav-links a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Trebuchet MS", sans-serif;
+
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.nav-links a:hover {
+  color: #facc15;
+  transform: translateY(-2px);
+}
+
+/* UNDERLINE ANIMATION */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+  background: #facc15;
+
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ========================= */
+/* HERO SECTION */
+/* ========================= */
+.hero {
+  position: relative;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* OVERLAY */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.85)
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7),
+      transparent 40%,
+      rgba(0, 0, 0, 0.7)
+    );
+}
+
+/* CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+/* TITLE */
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  color: #facc15;
+  line-height: 1.05;
+
+  text-shadow:
+    0 0 5px rgba(250, 204, 21, 0.8),
+    0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.hero-title span {
+  display: block;
+  font-size: 0.6em;
+  margin-top: 12px;
+}
+
+/* SUBTITLE */
+.hero-subtitle {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 18px;
+}
+
+/* BUTTON */
+.hero-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 30px;
+
+  background: linear-gradient(45deg, #facc15, #eab308);
+  color: #020617;
+
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 9px rgba(250, 204, 21, 0.6);
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .nav-links {
+    gap: 25px;
+  }
+}

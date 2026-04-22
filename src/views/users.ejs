@@ -1,9 +1,93 @@
 <%- include('includes/header') %>
 
+<link rel="stylesheet" href="/css/users.css" />
+
 <body>
-  <div>
-    <div>USERS PAGE</div>
+  <div class="layout">
+
+    <!-- SIDEBAR (SAME AS PRODUCTS) -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <a href="/admin" class="logo">FOOTIFY</a>
+        <div class="divider"></div>
+        <nav class="nav">
+          <a href="/admin/product/all" class="nav-item">Products</a>
+          <a href="/admin/user/all" class="nav-item">Users</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <a href="/admin/logout" class="nav-item logout" onclick="return confirm('Do you want to logout?');">
+          Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="admin-menu-frame">
+      <div class="board">
+
+        <% if (!member) { %>
+
+        <!-- NOT LOGGED IN -->
+        <div class="board-header">
+          <span class="new-dish-txt">Users</span>
+        </div>
+
+        <div style="font-size: 22px; color: #6b7280;">
+          Please login first!
+        </div>
+
+        <% } else { %>
+
+        <!-- PAGE HEADER -->
+        <div class="board-header">
+          <span class="new-dish-txt">Users</span>
+        </div>
+
+        <!-- USERS TABLE -->
+        <div class="dishes-table">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <!-- LOOP PRODUCTS: START -->
+            <tbody>
+              <% users.forEach(function(user, index) { %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= user.memberNick %></td>
+                <td><%= user.memberPhone %></td>
+                <td>
+                  <select class="spec-select member-status" id="<%= user._id %>">
+                    <option value="ACTIVE" <%= user.memberStatus === 'ACTIVE' ? 'selected' : '' %>>ACTIVE</option>
+                    <option value="BLOCK" <%= user.memberStatus === 'BLOCK' ? 'selected' : '' %>>BLOCK</option>
+                    <option value="DELETE" <%= user.memberStatus === 'DELETE' ? 'selected' : '' %>>DELETE</option>
+                  </select>
+                </td>
+              </tr>
+              <% }) %>
+              <!-- LOOP PRODUCTS: END -->
+
+            </tbody>
+
+          </table>
+        </div>
+
+        <% } %>
+
+      </div>
+    </div>
+
   </div>
+
+  <script src="/js/users.js"></script>
 </body>
 
 <%- include('includes/footer') %>
