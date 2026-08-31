@@ -26,25 +26,36 @@ class ProductService {
   /** SPA (User) */
 
   public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
+    const page =
+      Number.isFinite(inquiry.page) && inquiry.page > 0 ? inquiry.page : 1;
+    const limit =
+      Number.isFinite(inquiry.limit) && inquiry.limit > 0 ? inquiry.limit : 10;
     const match: T = { productStatus: ProductStatus.PROCESS };
 
     if (inquiry.productCategory)
-      match.productCollection = inquiry.productCategory;
+      match.productCategory = inquiry.productCategory;
     if (inquiry.search) {
       match.productName = { $regex: new RegExp(inquiry.search, "i") };
     }
 
+    const allowedSortFields = [
+      "createdAt",
+      "productViews",
+      "productLikes",
+      "productPrice",
+    ];
+    const sortField = allowedSortFields.includes(inquiry.order)
+      ? inquiry.order
+      : "createdAt";
     const sort: T =
-      inquiry.order === "productPrice"
-        ? { productPrice: 1 }
-        : { [inquiry.order]: -1 };
+      sortField === "productPrice" ? { productPrice: 1 } : { [sortField]: -1 };
 
     const result = await this.productModel
       .aggregate([
         { $match: match },
         { $sort: sort },
-        { $skip: (inquiry.page * 1 - 1) * inquiry.limit },
-        { $limit: inquiry.limit * 1 },
+        { $skip: (page - 1) * limit },
+        { $limit: limit },
       ])
       .exec();
 

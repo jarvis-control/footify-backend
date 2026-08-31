@@ -13,8 +13,17 @@
         <!-- CENTER: LINKS -->
         <div class="nav-links">
           <a href="/admin" class="active">Home</a>
+
+          <% if (!member) { %>
           <a href="/admin/signup">Signup</a>
           <a href="/admin/login">Login</a>
+          <% } else { %>
+          <a href="/admin/product/all">Products</a>
+          <a href="/admin/user/all">Users</a>
+          <a href="/admin/logout" onclick="return confirm('Do you want to logout?')">
+            Logout
+          </a>
+          <% } %>
         </div>
 
         <!-- RIGHT (EMPTY FOR BALANCE) -->

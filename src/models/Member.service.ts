@@ -20,6 +20,10 @@ class MemberService {
   /** SPA - for Users */
 
   public async signup(input: MemberInput): Promise<Member> {
+    input.memberType = MemberType.USER;
+    input.memberStatus = MemberStatus.ACTIVE;
+    input.memberPoints = 0;
+
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
@@ -98,11 +102,11 @@ class MemberService {
     const memberId = shapeIntoMongooseObjectId(member._id);
 
     return await this.memberModel
-      .findByIdAndUpdate(
+      .findOneAndUpdate(
         {
           _id: memberId,
-          MemberType: MemberType.USER,
-          MemberStatus: MemberStatus.ACTIVE,
+          memberType: MemberType.USER,
+          memberStatus: MemberStatus.ACTIVE,
         },
         { $inc: { memberPoints: point } },
         { new: true },

@@ -7,15 +7,14 @@ function validateForm() {
   const kitType = $(".kit-type").val();
   const productBrand = $(".product-brand").val();
   const productSize = $(".product-size").val();
-  const productPrice = $(".product-price-status").val();
+  const productPrice = $(".product-price").val();
   const productLeftCount = $(".product-left-count").val();
-  const productColor = $(".product-color").val();
   const productDesc = $(".product-desc").val();
 
   if (
     productname === "" ||
     productCategory === "" ||
-    kitType === "" ||
+    (productCategory === "KIT" && kitType === "") ||
     productBrand === "" ||
     productSize === "" ||
     productPrice === "" ||
@@ -33,7 +32,7 @@ $(function () {
     const file = this.files[0];
     if (!file) return;
 
-    const validTypes = ["image/jpg", "image/jpeg", "image/png"];
+    const validTypes = ["image/jpg", "image/jpeg", "image/png", "image/webp"];
 
     if (!validTypes.includes(file.type)) {
       alert("Please insert only jpeg, jpg and png!");

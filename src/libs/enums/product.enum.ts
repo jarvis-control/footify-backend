@@ -44,4 +44,9 @@ export enum ProductSize {
   SIZE_3 = "SIZE_3",
   SIZE_4 = "SIZE_4",
   SIZE_5 = "SIZE_5",
+  SIZE_7 = "SIZE_7",
+  SIZE_8 = "SIZE_8",
+  SIZE_9 = "SIZE_9",
+  SIZE_10 = "SIZE_10",
+  SIZE_11 = "SIZE_11",
 }
